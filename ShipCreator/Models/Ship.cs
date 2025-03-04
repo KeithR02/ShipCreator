@@ -17,6 +17,7 @@ public class Ship
     
     [Required]
     [Range(1, int.MaxValue, ErrorMessage = "Miles traveled must be a positive number greater than 0.")]
+    [Display(Name = "Nautical Milage")]
     public int NauticalMilage { get; set; }
     
     [Required]
