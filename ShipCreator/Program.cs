@@ -1,4 +1,9 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using ShipCreator.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<ShipCreatorContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("ShipCreatorContext") ?? throw new InvalidOperationException("Connection string 'ShipCreatorContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
